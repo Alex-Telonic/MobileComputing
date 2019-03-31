@@ -59,7 +59,7 @@ $( window ).on( "orientationchange", function( event ) {
 
 
 function start() {
-    $("#counter_value").css({"font-size": "100vw", "color": "white" });
+    $("#counter_value").css({"font-size": "100vw", "color": "white"});
 
     // $("#navbar").collapse.('hide');
 

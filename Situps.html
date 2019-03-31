@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
+  <head>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
@@ -11,71 +11,67 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="gyronorm/gyronorm.complete.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-	<title>Situps Counter</title>
-</head>
-<body class="d-flex flex-column">
-<div class="container-fluid"></div>
-<header>
-<nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light collapse show">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Situps Counter</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+    <title>Situps Counter</title>
+  </head>
+  <body class="d-flex flex-column">
+    <div class="container-fluid"></div>
+    <header>
+      <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light collapse show">
+        <a class="navbar-brand" href="#">Mobile Computing</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="situps.html">Situps Counterr</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+          </ul>
         </div>
-      </li>
-    </ul>
-  </div>
-</nav>
-</header>
+      </nav>
+    </header>
     <main id="main" class="container-fluid flex-fill">
-<!-- 	<p id="intro">
-		Welcome to this website. It is using the device orientation to count sit ups.
-	</p> -->
-<div id="output" class="row"> 
-
-<div class="col-md-12 col-sm-12 col-xs-12"> 
-	<div>
-	<button id="start-button" type="button" class="btn btn-primary text-center" data-toggle="collapse" data-target="#navbar" onclick="start();">Start</button>
-	<button id="stop-button" type="button" class="btn btn-primary text-center" onclick="stop();">Stop/Reset</button>
-  <button id="debug-button" type="button" class="btn btn-primary text-center" onclick="debug();">Debug</button> <br>
-   <br>
-  <span id="debug"></span>
-	</div>
-<!-- 	<div id="beta"> Test</div>
-	<div id="gamma"> Test</div> -->
-	<div id="counter" class="text-center"> Counter</div>
-
-	<div id="counter_value" class="text-center d-block d-md-none"></div>
-</div>
-</div>
-<!-- <div id="cleanValues" class="col-md-12 col-sm-12 col-xs-12">
-	<div id="beta_clean">Test</div>
-</div> -->
+      <!--  <p id="intro">
+        Welcome to this website. It is using the device orientation to count sit ups.
+      </p> -->
+      <!-- justify-content-center -->
+      <div id="output" class="row justify-content-center">
+        <div class="col-auto">
+          <div>
+            <button id="start-button" type="button" class="btn btn-primary text-center" data-toggle="collapse" data-target="#navbar" onclick="start();">Start</button>
+            <button id="stop-button" type="button" class="btn btn-primary text-center" onclick="stop();">Stop/Reset</button>
+            <button id="debug-button" type="button" class="btn btn-primary text-center" onclick="debug();">Debug</button> <br>
+            <br>
+            <span id="debug"></span>
+          </div>
+        </div>
+      </div>
+      <div id="output" class="row justify-content-center">
+        <div class="col-auto">
+          <div id="counter" class="text-center"> Counter</div>
+          <div id="counter_value" class="text-center d-block d-md-none"></div>
+        </div>
+      </div>
     </main>
-
     <footer class="panel-footer">
       <div id="footer" class="container-fluid">
         &copy; Copyright: Alexander Schlechter - Mobile Computing
       </div>
     </footer>
     <script src="js/testing.js"></script>
-</body>
+  </body>
 </html>
