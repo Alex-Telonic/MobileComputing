@@ -27,54 +27,83 @@
 
 // }, true);
 
-
+var gn = new GyroNorm();
+var counter = 0;
+var x = 0;
+var y = 0;
+var debug_boolean = false;
 // var maxX = garden.clientWidth  - ball.clientWidth;
 // var maxY = garden.clientHeight - ball.clientHeight;
-
 function stop() {
-    $("#start-button").text("Start");
+    gn.stop();
+    console.log("gn stopped");
+    counter = 0;
+    $("#counter_value").text(counter);
 }
+
+function debug() {
+  if (debug_boolean == false) {
+    debug_boolean = true;
+  }
+  else {
+    debug_boolean = false;
+    $("#debug").text("");
+  }
+  console.log(debug_boolean);
+}
+
+$( window ).on( "orientationchange", function( event ) {
+  $("#counter_value").css({"font-size": "2vw", "color": "white" });
+  $("#counter").css({"font-size": "2vw", "color": "white" });
+});
+
+
 function start() {
-var counter = 0;
+    $("#counter_value").css({"font-size": "100vw", "color": "white" });
+
+    // $("#navbar").collapse.('hide');
+
 var situpboolean = false;
 var situpboolean2 = false;
-function handleOrientation(event) {
 
-  var x = event.beta;  // In degree in the range [-180,180]
-  var y = event.gamma; // In degree in the range [-90,90]
 
-  x = x || 0;
-  y = y || 0;
-  x = x.toFixed(0);
-  y = y.toFixed(0);
-  y = Math.abs(y);
-  if (situpboolean == false) { 
-  	if (x >= 60) {
-  	counter++;
-  	situpboolean = true;
+// window.addEventListener('deviceorientation', handleOrientation);
+// function handleOrientation(event) {
 
-  }
-  	else if (y >= 60) {
-  		counter++;
-  		situpboolean2 = true;
-  	}
+//   var x = event.beta;  // In degree in the range [-180,180]
+//   var y = event.gamma; // In degree in the range [-90,90]
 
-}
-  else { 
-  	if (x <= 10 ) {
-  	situpboolean = false;
-  }
+//   x = x || 0;
+//   y = y || 0;
+//   x = x.toFixed(0);
+//   y = y.toFixed(0);
+//   y = Math.abs(y);
+//   if (situpboolean == false) { 
+//   	if (x >= 60) {
+//   	counter++;
+//   	situpboolean = true;
 
-}
-  var beta = "beta: " + x;
-  var gamma = "gamma: " + y;
+//   }
+//   	else if (y >= 60) {
+//   		counter++;
+//   		situpboolean2 = true;
+//   	}
+
+// }
+//   else { 
+//   	if (x <= 10 ) {
+//   	situpboolean = false;
+//   }
+
+// }
+  // var beta = "beta: " + x;
+  // var gamma = "gamma: " + y;
   // innerHTML += "gamma: " + y  + "</h1>";
-  $("#beta").text(beta);
-  $("#gamma").text(gamma);
+  // $("#beta").text(beta);
+  // $("#gamma").text(gamma);
 
-  $("#counter_value").text(counter);
-  $("#counter_value").css({"font-size": "100vw", "color": "white" });
-  $("#start-button").text("Reset");
+  // $("#counter_value").text(counter);
+  // $("#counter_value").css({"font-size": "100vw", "color": "white" });
   // Because we don't want to have the device upside down
   // We constrain the x value to the range [-90,90]
   // if (x >  90) { x =  90};
@@ -89,17 +118,43 @@ function handleOrientation(event) {
   // // It center the positioning point to the center of the ball
   // ball.style.top  = (maxX*x/180 - 10) + "px";
   // ball.style.left = (maxY*y/180 - 10) + "px";
-}
-
-window.addEventListener('deviceorientation', handleOrientation);
 
 
 
-var gn = new GyroNorm();
+
+
 
 gn.init().then(function(){
   gn.start(function(data){
-  	$("#beta_clean").text("clean value: " + data.do.beta);
+    if (debug_boolean == true) {
+      $("#debug").text("beta: " + x + " gamma:" + y);
+    }
+    x = data.do.beta;
+    y = data.do.gamma;
+    y = Math.abs(y);
+    if (situpboolean == false && situpboolean2 == false) { 
+      if (x >= 60) {
+        counter++;
+        situpboolean = true;
+      }
+      else if (y >= 50) {
+      counter++;
+      situpboolean2 = true;
+      }
+
+    }
+  else if (situpboolean == true &&  situpboolean2 == false) { 
+    if (x <= 10 ) {
+    situpboolean = false;
+    }
+  }
+  else if (situpboolean2 == true &&  situpboolean == false) {
+    if (y <= 10) {
+      situpboolean2 = false;
+    }
+  }
+
+    $("#counter_value").text(counter);
     // Process:
     // data.do.alpha	( deviceorientation event alpha value )
     // data.do.beta		( deviceorientation event beta value )
@@ -122,6 +177,8 @@ gn.init().then(function(){
 	console.log("Not supported");
   // Catch if the DeviceOrientation or DeviceMotion is not supported by the browser or device
 });
+
+
 // navigator.geolocation.getCurrentPosition(function(position) {
 
 // });
@@ -140,7 +197,6 @@ gn.init().then(function(){
 //   maximumAge        : 30000, 
 //   timeout           : 27000
 // };
-
 // var wpid = navigator.geolocation.watchPosition(geo_success, geo_error, geo_options);
 }
 
