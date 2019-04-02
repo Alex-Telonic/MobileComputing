@@ -27,7 +27,7 @@
               <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="situps.html">Situps Counterr</a>
+              <a class="nav-link" href="situps.html">Situps Counter</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -52,9 +52,9 @@
       <div id="output" class="row justify-content-center">
         <div class="col-auto">
           <div>
-            <button id="start-button" type="button" class="btn btn-primary text-center" data-toggle="collapse" data-target="#navbar" onclick="start();">Start</button>
-            <button id="stop-button" type="button" class="btn btn-primary text-center" onclick="stop();">Stop/Reset</button>
-            <button id="debug-button" type="button" class="btn btn-primary text-center" onclick="debug();">Debug</button> <br>
+            <button id="start-button" type="button" class="btn btn-success text-center" data-toggle="collapse" data-target="#navbar" onclick="start();">Start</button>
+            <button id="stop-button" type="button" class="btn btn-danger text-center" data-toggle="collapse" data-target="#navbar" onclick="stop();">Stop/Reset</button>
+            <button id="debug-button" type="button" class="btn btn-warning text-center" onclick="debug();">Debug</button> <br>
             <br>
             <span id="debug"></span>
           </div>
@@ -62,8 +62,10 @@
       </div>
       <div id="output" class="row justify-content-center">
         <div class="col-auto">
-          <div id="counter" class="text-center"> Counter</div>
-          <div id="counter_value" class="text-center d-block d-md-none"></div>
+          <div id="counter" class="text-center"></div>
+          <div id="intro" class="text-center"> Welcome! This app counts your situps. Please lie down, put the phone on your chest and push start. Then start with your situps.</div>
+          <div id="OnlyMobile" class="text-center d-none d-sm-block">This website is only designed for mobile phones.</div>
+          <div id="counter_value" class="text-center d-block d-sm-none"></div>
         </div>
       </div>
     </main>

@@ -11,7 +11,18 @@ body {
 }
 
 #debug {
-	color: white;
+	color: black;
+}
+
+#counter_value {
+	font-size: 100vw;
+	color: black;
+}
+
+#OnlyMobile {
+	margin-top: 50px;
+	font-size: 20px;
+	font-weight: bold;
 }
 
 /*#output, #cleanValues {
@@ -32,14 +43,19 @@ body {
 #gamma {
 	background-color: #80b3ff;
 }*/
-
+/*
 #start-button {
 	background-color: white;
 	color: black;
 }
+#stop-button {
+	background-color: red;
+}*/
+
+
 
 #main {
-	background-color: black;
+	background-color: white;
 }
 
 #footer {
@@ -47,6 +63,23 @@ body {
 }
 
 #counter {
-	color: white;
+	color: black;
 	font-size: 30px;
+}
+
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 1s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }

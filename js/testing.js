@@ -53,16 +53,18 @@ function debug() {
 }
 
 $( window ).on( "orientationchange", function( event ) {
-  $("#counter_value").css({"font-size": "2vw", "color": "white" });
-  $("#counter").css({"font-size": "2vw", "color": "white" });
+  $("#counter_value").css({"font-size": "2vw", "color": "black" });
+  $("#counter").css({"font-size": "2vw", "color": "black" });
 });
 
 
 function start() {
-    $("#counter_value").css({"font-size": "100vw", "color": "white"});
+    // $("#counter_value").css({"font-size": "100vw", "color": "white"});
 
     // $("#navbar").collapse.('hide');
-
+$("#counter").text("Counter");
+$("#counter_value").text(0);
+$("#intro").text("");
 var situpboolean = false;
 var situpboolean2 = false;
 
@@ -122,10 +124,9 @@ var situpboolean2 = false;
 
 
 
-
-
 gn.init().then(function(){
   gn.start(function(data){
+    var tempValue = $("#counter_value").text();
     if (debug_boolean == true) {
       $("#debug").text("beta: " + x + " gamma:" + y);
     }
@@ -153,8 +154,16 @@ gn.init().then(function(){
       situpboolean2 = false;
     }
   }
+  
+    if (tempValue != counter) {
+      $("#counter_value").addClass("fade-in");
+      $("#counter_value").text(counter);
+              setTimeout(function(){
+            $("#counter_value").toggleClass("fade-in");
+        }, 1000);
+    }
 
-    $("#counter_value").text(counter);
+
     // Process:
     // data.do.alpha	( deviceorientation event alpha value )
     // data.do.beta		( deviceorientation event beta value )
